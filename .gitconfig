@@ -1,0 +1,8 @@
+[user]
+	name = Jasper Martin
+	email = jaspervanbrianmartin@gmail.com
+	username = jaspervanbrian
+[core]
+	editor = vim
+[color]
+	ui = true
