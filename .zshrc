@@ -12,13 +12,21 @@ export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 export PATH=$HOME/.rbenv/plugins/ruby-build/bin:$PATH
 
+# Android
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+alias astudio=/home/dell/bin/android-studio/bin/studio.sh
+
 # Launch TMUX
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 [[ -z "$TMUX" ]] && exec tmux
 tmux_count=$(tmux list-panes | wc -l)
 if [[ $tmux_count == 1 ]] ; then
-	neofetch
+#	neofetch
 	((tmux_count++))
 fi
 
@@ -95,7 +103,7 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="58"
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="58"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon root_indicator ssh background_jobs ip context dir dir_writable vcs )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(php_version node_version rbenv load ram battery time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(php_version node_version nvm rbenv load ram battery time)
 POWERLEVEL9K_CHANGESET_HASH_LENGTH=6
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
@@ -187,6 +195,9 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# GIT PERESONAL ACCESS TOKEN (NEEDED FOR PUSHING BECAUSE OF 2FA)
+GIT_PERSONAL_ACCESS_TOKEN=$(cat ~/personal_token_git.txt)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
