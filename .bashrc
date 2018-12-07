@@ -116,11 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Launch TMUX
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
-
 # Powerline
 if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
     source /usr/share/powerline/bindings/bash/powerline.sh

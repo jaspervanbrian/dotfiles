@@ -47,6 +47,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -199,6 +200,7 @@ set noshowmode
 syntax on
 set ruler
 set number
+set relativenumber             " Show relative line numbers
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
@@ -271,13 +273,13 @@ endif
 " we'll dump airline
 
 " vim-airline
-" let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'powerlineish'
-" let g:airline#extensions#syntastic#enabled = 1
-" let g:airline#extensions#branch#enabled = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tagbar#enabled = 1
-" let g:airline_skip_empty_sections = 1
+ let g:airline_powerline_fonts = 1
+ let g:airline_theme = 'powerlineish'
+ let g:airline#extensions#syntastic#enabled = 1
+ let g:airline#extensions#branch#enabled = 1
+ let g:airline#extensions#tabline#enabled = 1
+ let g:airline#extensions#tagbar#enabled = 1
+ let g:airline_skip_empty_sections = 1
 
 "*****************************************************************************
 "" Abbreviations
@@ -302,6 +304,7 @@ let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
+let g:NERDTreeShowHidden = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
@@ -439,6 +442,13 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ["php"]
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_jshint_quiet_messages = { "level": "warnings" }
+
+
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>

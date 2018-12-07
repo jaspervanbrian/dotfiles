@@ -20,16 +20,6 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 alias astudio=/home/dell/bin/android-studio/bin/studio.sh
 
-# Launch TMUX
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
-tmux_count=$(tmux list-panes | wc -l)
-if [[ $tmux_count == 1 ]] ; then
-#	neofetch
-	((tmux_count++))
-fi
-
 # Powerline
 if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
     source /usr/share/powerline/bindings/zsh/powerline.zsh
@@ -211,3 +201,28 @@ GIT_PERSONAL_ACCESS_TOKEN=$(cat ~/personal_token_git.txt)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Check if user has opened tmate
+# Answer: https://superuser.com/a/198022
+# Answer: https://stackoverflow.com/questions/16398850/create-new-tmux-session-from-inside-a-tmux-session
+if [[ -z "$ZSH_TMATE" ]]
+then
+	# Launch TMUX
+	# If not running interactively, do not do anything
+	[[ $- != *i* ]] && return
+	[[ -z "$TMUX" ]] && exec tmux
+	tmux_count=$(tmux list-panes | wc -l)
+	if [[ $tmux_count == 1 ]] ; then
+	#	neofetch
+		((tmux_count++))
+	fi
+
+	# Alias tmate
+	export ZSH_TMATE=tmate
+	alias tmate="gnome-terminal"
+else
+	unset TMUX
+	unset ZSH_TMATE
+	exec tmate
+fi
