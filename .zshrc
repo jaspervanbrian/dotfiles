@@ -226,3 +226,7 @@ else
 	unset ZSH_TMATE
 	exec tmate
 fi
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
