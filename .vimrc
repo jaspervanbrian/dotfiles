@@ -206,6 +206,17 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+" Always display the tabline, even if there is only one tab
+set showtabline=2
+
+" Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set noshowmode
+set relativenumber             " Show relative line numbers"
+
 syntax on
 set ruler
 set number
