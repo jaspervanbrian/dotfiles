@@ -11,6 +11,8 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 export PATH=$HOME/.rbenv/plugins/ruby-build/bin:$PATH
+# for awscli
+export PATH=$HOME/.local/bin:$PATH
 
 # Android
 export ANDROID_HOME=$HOME/Android/Sdk
