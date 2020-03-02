@@ -1,9 +1,9 @@
 cd ~/dotfiles
 
 rm -f .bashrc .gitconfig .tmux.conf .vimrc .zshrc config.conf
-cp ~/.bashrc ~/dotfiles/
-cp ~/.gitconfig ~/dotfiles/
-cp ~/.tmux.conf ~/dotfiles/
-cp ~/.vimrc ~/dotfiles/
-cp ~/.zshrc ~/dotfiles/
-cp ~/.config/neofetch/config.conf ~/dotfiles/
+cp ~/.bashrc ~/dotfiles-ubuntu/
+cp ~/.gitconfig ~/dotfiles-ubuntu/
+cp ~/.tmux.conf ~/dotfiles-ubuntu/
+cp ~/.vimrc ~/dotfiles-ubuntu/
+cp ~/.zshrc ~/dotfiles-ubuntu/
+cp ~/.config/neofetch/config.conf ~/dotfiles-ubuntu/
