@@ -1,4 +1,4 @@
-cd ~/dotfiles
+cd ~/dotfiles-ubuntu
 
 rm -f .bashrc .gitconfig .tmux.conf .vimrc .zshrc config.conf
 cp ~/.bashrc ~/dotfiles-ubuntu/
